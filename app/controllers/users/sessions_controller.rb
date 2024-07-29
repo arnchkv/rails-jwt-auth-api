@@ -28,7 +28,6 @@ class Users::SessionsController < Devise::SessionsController
   respond_to :json
 
   private
-
   def respond_with(resource, option={})
     render json: {
       status: { code: 200, message: "User signed in sucessfully", data: current_user }
@@ -45,7 +44,7 @@ class Users::SessionsController < Devise::SessionsController
         status: 200,
         message: "Signed out sucessfully"
       }, status: :ok
-      else
+    else
         render json: {
           status: 401,
           message: "no acitve session"
